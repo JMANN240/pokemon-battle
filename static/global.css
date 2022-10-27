@@ -1,12 +1,19 @@
 * {
+	font-family: Sans-Serif;
 	margin: 0;
 	padding: 0;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
+
+*::-webkit-scrollbar {
+	display: none;
 
 body {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
