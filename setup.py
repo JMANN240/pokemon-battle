@@ -2,7 +2,7 @@
 
 import sqlite3
 
-with sqlite3.connect("databse.db") as connection: # Get a connection to the database file
+with sqlite3.connect("database.db") as connection: # Get a connection to the database file
 	cursor = connection.cursor() # Get a cursor so we can modify the database
 
 	# For every table we need to drop it if it exists and then create it.
@@ -11,7 +11,7 @@ with sqlite3.connect("databse.db") as connection: # Get a connection to the data
 	cursor.execute('''
 		CREATE TABLE blah (
 			col1 INTEGER PRIMARY KEY,
-			col2 TEXT NOT NULL
+			col2 TEXT NOT NULL,
 			col3 TEXT NOT NULL
 		)
 	''')
@@ -19,3 +19,5 @@ with sqlite3.connect("databse.db") as connection: # Get a connection to the data
 	# Then fill in our entries
 
 	cursor.execute('INSERT INTO blah (col1, col2, col3) VALUES (1, "foo", "bar")')
+	cursor.execute('INSERT INTO blah (col1, col2, col3) VALUES (2, "bat", "baz")')
+	connection.commit()
