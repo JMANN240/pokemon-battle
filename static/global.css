@@ -20,6 +20,10 @@ body {
 	align-items: center;
 }
 
+a {
+	text-decoration: none;
+}
+
 .large-icon {
 	font-size: 8vw;
 	margin: 1rem;
