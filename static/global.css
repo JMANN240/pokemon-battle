@@ -8,12 +8,19 @@
 
 *::-webkit-scrollbar {
 	display: none;
+}
 
 body {
+	background-color: #45818E;
 	width: 100vw;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.large-icon {
+	font-size: 8vw;
+	margin: 1rem;
 }
