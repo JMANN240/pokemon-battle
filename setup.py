@@ -7,17 +7,19 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	# For every table we need to drop it if it exists and then create it.
 
-	cursor.execute('DROP TABLE IF EXISTS blah')
+	cursor.execute('DROP TABLE IF EXISTS item_types')
 	cursor.execute('''
-		CREATE TABLE blah (
-			col1 INTEGER PRIMARY KEY,
-			col2 TEXT NOT NULL,
-			col3 TEXT NOT NULL
+		CREATE TABLE item_types
+		(
+			type_id INT NOT NULL,
+			type_name TEXT NOT NULL,
+			PRIMARY KEY (type_ID)
 		)
 	''')
 
 	# Then fill in our entries
 
-	cursor.execute('INSERT INTO blah (col1, col2, col3) VALUES (1, "foo", "bar")')
-	cursor.execute('INSERT INTO blah (col1, col2, col3) VALUES (2, "bat", "baz")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (0, "potions")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (1, "balls")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (2, "special")')
 	connection.commit()

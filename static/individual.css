@@ -1,0 +1,10 @@
+body {
+	display: grid;
+	grid-template-columns: 30vw 70vw;
+	grid-template-rows: 10vh 30vh 40vh 20vh;
+	grid-template-areas:
+		"picture header"
+		"picture description"
+		"types stats"
+		"types back";
+}
