@@ -1,34 +1,35 @@
-div {
+#list-div {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100vw;
-	height: 50vh;
+	height: 80vh;
+	padding: 1vh 0;
+}
+
+#footer-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100vw;
+	height: 20vh;
 }
 
 button {
-	width: 48vw;
-	height: 48vh;
+	width: 90vw;
+	height: 15vh;
 	border: 0;
 	border-radius: 1vw;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	flex-direction: column;
+	flex-direction: row;
 	font-size: 4vw;
 	transition-duration: 0.2s;
-}
-
-button:hover {
-	transform: scale(1.01);
-}
-
-#pokeball {
-	position: fixed;
-	top: calc(50% - 10vw);
-	left: calc(50% - 10vw);
-	width: 20vw;
+	margin: 1vh 2vw;
+	padding: 0.5vh 1vw;
 }
 
 #potions-button {
@@ -46,11 +47,6 @@ button:hover {
 	background-color: #B6D7A8;
 }
 
-#back-button {
-	color: #FFFFFF;
-	background-color: #9900FF;
-}
-
 #potions-button:hover {
 	background-color: #ECA3A3;
 }
@@ -63,6 +59,3 @@ button:hover {
 	background-color: #BDDBB0;
 }
 
-#back-button:hover {
-	background-color: #A319FF;
-}

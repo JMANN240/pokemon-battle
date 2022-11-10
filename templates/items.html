@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Pokemon</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="static/global.css" type="text/css" />
-		<link rel="stylesheet" href="static/items.css" type="text/css" />
-		<link rel="icon" type="image/x-icon" href="/static/pokeball.svg" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	</head>
-	<body>
-		<div>
-			<a href="/items/potions">
-				<button id="potions-button">
-					Potions
-					<i class="fa-solid fa-flask large-icon"></i>
-				</button>
-			</a>
-			<a href="/items/balls">
-				<button id="balls-button">
-					Balls
-					<i class="fa-regular fa-circle large-icon"></i>
-				</button>
-			</a>
-		</div>
-		<div>
-			<button id="special-button">
-				Special
-				<i class="fa-regular fa-star large-icon"></i>
+{% extends "base.html" %}
+{% block title %}Items{% endblock %}
+{% block head %}
+    {{ super() }}
+	<link rel="stylesheet" href="static/items.css" type="text/css" />
+{% endblock %}
+{% block body %}
+	<div id="list-div">
+		<a href="/items/potions">
+			<button id="potions-button">
+				<i class="fa-solid fa-flask large-icon"></i>
+				Potions
 			</button>
-			<a href="/">
+		</a>
+		<a href="/items/balls">
+			<button id="balls-button">
+				<i class="fa-regular fa-circle large-icon"></i>
+				Balls
+			</button>
+		</a>
+		<a href="/items/special">
+			<button id="special-button">
+				<i class="fa-regular fa-star large-icon"></i>
+				Special
+			</button>
+		</a>
+	</div>
+	<div id="footer-div">
+		<a href="/">
 			<button id="back-button">
 				Back
-				<i class="fa-regular fa-circle-left large-icon"></i>
+				<img id="pokeball" src="static/pokeball_outline.svg" alt="An Outlined Pokeball">
 			</button>
-		</div>
-		<img id="pokeball" src="static/pokeball_outline.svg" alt="An Outlined Pokeball">
-	</body>
-</html>
+		</a>
+	</div>
+{% endblock %}

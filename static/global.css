@@ -10,8 +10,14 @@
 	display: none;
 }
 
+:root {
+	--bg-teal: #45818E;
+	--bg-back: #9900FF;
+	--bg-back-hover: #A319FF;
+}
+
 body {
-	background-color: #45818E;
+	background-color: var(--bg-teal);
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -25,6 +31,32 @@ a {
 }
 
 .large-icon {
-	font-size: 8vw;
+	font-size: 4vw;
 	margin: 1rem;
+}
+
+button:hover {
+	transform: scale(1.01);
+}
+
+#back-button {
+	position: relative;
+	width: 20vw;
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	color: #FFFFFF;
+	background-color: var(--bg-back);
+}
+
+#back-button:hover {
+	background-color: var(--bg-back-hover);
+}
+
+
+#pokeball {
+	position: absolute;
+	top: calc(50% - 4vw);
+	left: calc(-4vw);
+	width: 8vw;
 }
