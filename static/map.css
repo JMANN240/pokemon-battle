@@ -1,145 +1,50 @@
-#mapImage {
-	position: fixed;
-	top: 6.01vw;
-	left: 0vw;
-	width: 78.75vw;
-	height: 39vw;
-	z-index: 1;
+body {
+	display: grid;
+	grid-template-columns: 70vw 30vw;
+	grid-template-rows: 10vh 60vh 10vh 20vh;
+	grid-template-areas: 
+		"header header"
+		"map chat"
+		"map text-box"
+		"map-info back";
+}
+
+#header {
+	position: relative;
+    grid-area: header;
+}
+
+#map {
+	grid-area: map;
+	width: 70vw;
+	height: 70vh;
+}
+
+#map-info {
+	grid-area: map-info;
+}
+
+#chat {
+	grid-area: chat;
+}
+
+#text-box {
+	padding: 1vh 1vw;
+	font-size: 2vw;
+	grid-area: text-box;
+}
+
+#back {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	grid-area: back;
 }
 
 #pokeball {
-	position: fixed;
-	top: 2.9vw;
-	left: 1.3vw;
-	width: 6vw;
-	border: black;
-	z-index: 2;
+	position: absolute;
+	top: calc(10vh - 4vw);
+	left: 2vw;
+	width: 8vw;
 }
-
-#menuButton {
-    font-weight: bold;
-    font-size: 1.4vw;
-    position: absolute;
-    top: 2.55vw;
-    right: 0vw;
-    width: 6vw;
-    height: 3.3vw;
-}
-
-button:hover {
-    transform: scale(1.03);
-}
-
-#topBanner {
-    position: absolute;
-    top: 0vw;
-    left: 0;
-    right: 0;
-  
-    font-weight: bold;
-    font-size: 1.8vw;
-    padding:.7vw;
-    height:.7vw;
-  
-    text-align: left;
-    
-    background:white;
-    background-size:100%;    
-    border-style: solid;
-    
-    display: flex;
-    align-items: center;
-}
-
-#topBlueBanner {
-    position: absolute;
-    top: 2.4vw;
-    left: 0vw;
-    right: 0vw;
-  
-    font-weight: bold;
-    font-size: 1.8vw;
-    padding:1.1vw;
-    height:1.1vw;
-  
-    color: white;
-    
-    background:blue;
-    background-size:100%;    
-    border-style: solid;
-    border-color: black;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#lowerBlueBanner {
-    position: absolute;
-    bottom: 2vw;
-    left: 0vw;
-    right: 21.25vw;
-  
-    font-weight: bold;
-    font-size: 1.2vw;
-    padding:.8vw;
-    height:.8vw;
-  
-    color: white;
-    
-    background:blue;
-    background-size:100%;    
-    border-style: solid;
-    border-color: black;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#lowerWhiteBanner {
-    position: absolute;
-    bottom: 0vw;
-    left: 0vw;
-    right:0vw;
-  
-    font-weight: bold;
-    font-size: 1.2vw;
-    padding:.6vw;
-    height:.6vw;
-  
-    color: white;
-    
-    background:white;
-    background-size:100%;    
-    border-style: solid;
-    border-color: black;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#messageBox {
-    position: absolute;
-    bottom: 2vw;
-    width: 19.48vw;
-    right: 0vw;
-  
-    font-weight: bold;
-    font-size: 1.2vw;
-    padding:.8vw;
-    height:.8vw;
-  
-    color: white;
-    
-    background:purple;
-    background-size:100%;    
-    border-style: solid;
-    border-color: black;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-

@@ -10,34 +10,27 @@
 	</head>
 	
 	<body>
-	
-		<p id="topBanner">
-			Region Map
-		</p>
 		
-		<p id="topBlueBanner">
+		<p id="header" class="text-box title">
 			You are currently in the [Basho] Region!
+			<img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball">
 		</p>
 		
-		<p id="lowerBlueBanner">
+		<img id="map" src="/static/skyrimmap.jpg" alt="The Map Image">
+		
+		<p id="map-info"class="text-box title">
 			[Mountain Gym: Rock, Steel, and Ground type monsters]
 		</p>
-		
-		<p id="lowerWhiteBanner">	
-		</p>
-		
-		
-		<input type="text" id="messageBox" name="Name" placeholder="Type here to msg">
-		
-		
 
-		<button id="menuButton">
-			MENU
-		</button>
+		<div id="chat"class="text-box">
+
+		</div>
 		
-		
-		<img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball">
-		<img id="mapImage" src="/static/skyrimmap.jpg" alt="The Map Image">
+		<input type="text" id="text-box" name="Name" placeholder="Type here to msg" class="text-box">
+
+		<div id="back">
+			{% include 'back.html' %}
+		</div>
 	</body>
 </html>
 

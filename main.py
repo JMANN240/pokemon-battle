@@ -18,7 +18,10 @@ async def battle(request: Request):
 
 @app.get('/items', response_class=HTMLResponse)
 async def items(request: Request):
-	return templates.TemplateResponse('items.html', {'request': request})
+	return templates.TemplateResponse('items.html', {
+		'request': request,
+		'back_url': '/'
+	})
 
 @app.get('/team', response_class=HTMLResponse)
 async def team(request: Request):
@@ -38,4 +41,7 @@ async def item(request: Request, item_type: str, item_name: str):
 
 @app.get('/map', response_class=HTMLResponse)
 async def map(request: Request):
-	return templates.TemplateResponse('map.html', {'request': request})
+	return templates.TemplateResponse('map.html', {
+		'request': request,
+		'back_url': '/'
+	})
