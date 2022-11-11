@@ -15,6 +15,16 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 			type_name TEXT NOT NULL,
 			PRIMARY KEY (type_ID)
 		)
+		CREATE TABLE item
+		(
+  			item_id INT NOT NULL,
+  			item_name TEXT NOT NULL,
+  			color TEXT NOT NULL,
+  			type_id INT NOT NULL,
+  			PRIMARY KEY (item_id),
+  			FOREIGN KEY (type_id) REFERENCES item_types(type_ID)
+		)
+
 	''')
 
 	# Then fill in our entries
@@ -22,4 +32,5 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (0, "potions")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (1, "balls")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (2, "special")')
+	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (0, "regular_ball", "red", 1)
 	connection.commit()
