@@ -11,6 +11,10 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('DROP TABLE IF EXISTS item')
 	cursor.execute('DROP TABLE IF EXISTS player')
 	cursor.execute('DROP TABLE IF EXISTS pokemon_types')
+	cursor.execute('DROP TABLE IF EXISTS player_item')
+	cursor.execute('DROP TABLE IF EXISTS team')
+	cursor.execute('DROP TABLE IF EXISTS pokemon')
+	cursor.execute('DROP TABLE IF EXISTS pokemon_type')
 
 	cursor.execute('''
 		
@@ -53,13 +57,64 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	''')
 
+	cursor.execute('''
+		CREATE TABLE player_item
+		(
+  			quantity INT NOT NULL,
+  			player_id INT NOT NULL,
+  			item_id INT NOT NULL,
+  			PRIMARY KEY (player_id, item_id),
+  			FOREIGN KEY (player_id) REFERENCES player(player_id),
+  			FOREIGN KEY (item_id) REFERENCES item(item_id)
+		)
+	''')
+
+	cursor.execute('''
+		CREATE TABLE team
+		(
+  			team_id INT NOT NULL,
+  			team_name TEXT NOT NULL,
+  			player_id INT NOT NULL,
+  			PRIMARY KEY (team_id),
+  			FOREIGN KEY (player_id) REFERENCES player(player_id)
+		)
+	''')
+	
+	cursor.execute('''
+		CREATE TABLE pokemon
+		(
+  			pokemon_id INT NOT NULL,
+  			p_name TEXT NOT NULL,
+  			health INT NOT NULL,
+  			hype INT NOT NULL,
+  			team_id INT,
+  			PRIMARY KEY (pokemon_id),
+  			FOREIGN KEY (team_id) REFERENCES team(team_id)
+		)
+	''')
+
+	cursor.execute('''
+		CREATE TABLE pokemon_type
+		(
+  			pokemon_id INT NOT NULL,
+  			p_type_id INT NOT NULL,
+  			PRIMARY KEY (pokemon_id, p_type_id),
+  			FOREIGN KEY (pokemon_id) REFERENCES pokemon(pokemon_id),
+  			FOREIGN KEY (p_type_id) REFERENCES pokemon_types(p_type_id)
+		)
+
+	''')
+
 	# Then fill in our entries
 
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (0, "potions")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (1, "balls")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (2, "special")')
+
 	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (0, "regular_ball", "red", 1)')
+
 	cursor.execute('INSERT INTO player (player_id, player_name) VALUES (0, "bob")')
+
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (0, "bug")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (1, "dark")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (2, "dragon")')
@@ -78,4 +133,13 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (15, "rock")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (16, "steel")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (17, "water")')
+
+	cursor.execute('INSERT INTO player_item (quantity, player_id, item_id) VALUES (5, 0, 0)')
+
+	cursor.execute('INSERT INTO team (team_id, team_name, player_id) VALUES (0, "bobs_minions", 0)')
+
+	cursor.execute('INSERT INTO pokemon (pokemon_id, p_name, health, hype, team_id) VALUES (0, "pikachu", 100, 100, 0)')
+	
+	cursor.execute('INSERT INTO pokemon_type (pokemon_id, p_type_id) VALUES (0, 3)')
+
 	connection.commit()
