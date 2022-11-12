@@ -20,6 +20,9 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 			type_name TEXT NOT NULL,
 			PRIMARY KEY (type_ID)
 		)
+	''')
+
+	cursor.execute('''
 		CREATE TABLE item
 		(
   			item_id INT NOT NULL,
@@ -29,12 +32,18 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
   			PRIMARY KEY (item_id),
   			FOREIGN KEY (type_id) REFERENCES item_types(type_ID)
 		)
+	''')
+	
+	cursor.execute('''
 		CREATE TABLE player
 		(
   			player_id INT NOT NULL,
   			player_name TEXT NOT NULL,
   			PRIMARY KEY (player_id)
 		)
+	''')
+
+	cursor.execute('''
 		CREATE TABLE pokemon_types
 		(
   			p_type_id INT NOT NULL,
@@ -55,18 +64,18 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (1, "dark")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (2, "dragon")')
 	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "electric")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "fairy")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "fighting")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "fire")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "flying")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "ghost")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "grass")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "ground")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "ice")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "normal")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "poison")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "psychic")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "rock")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "steel")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "water")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (4, "fairy")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (5, "fighting")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (6, "fire")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (7, "flying")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (8, "ghost")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (9, "grass")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (10, "ground")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (11, "ice")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (12, "normal")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (13, "poison")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (14, "psychic")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (15, "rock")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (16, "steel")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (17, "water")')
 	connection.commit()
