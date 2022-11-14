@@ -8,3 +8,33 @@ body {
 		"types stats"
 		"types back";
 }
+
+picture {
+	grid-area: picture;
+	
+}
+
+header {
+	grid-area: header;
+}
+
+description {
+	grid-area:description;
+
+}
+
+types {
+	grid-area: types;
+}
+
+stats {
+	grid-area: stats;
+}
+
+back {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	grid-area: back;
+}
