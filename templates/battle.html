@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Items{% endblock %}
+{% block head %}
+    {{ super() }}
+	<link rel="stylesheet" href="static/battle.css" type="text/css" />
+{% endblock %}
+{% block body %}
+	<div id="main-container">
+
+        
+        <div id="battle-interface">
+
+            <img id="trainer-pokemon" src ="/static/magikarp_battle_sprite.png">
+            <img id="opponent-pokemon" src ="/static/arceus_battle_sprite.png">
+
+
+            <div class="battle-box" id="opponent-box">
+                <div> ARCEUS&nbsp;&nbsp;&nbsp;&nbsp;Lv. 99</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+
+            </div>
+
+            <div class="battle-box" id="trainer-box">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+                
+                <div class="exp-bar">
+                    <div class="exp">EXP</div>                   
+                </div>
+
+            </div>
+
+            
+
+            
+
+        </div>
+            
+        <div id="option-select-interface">
+            <div id="prompt">
+                What will<br>MAGIKARP do?
+            </div>
+
+            <div id="options-grid"> 
+                <button class = "button-style">Fight</button>
+                <button class = "button-style">Bag</button>
+                <button class = "button-style">Pokemon</button>
+                <button class = "button-style">Run</button>
+                
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
