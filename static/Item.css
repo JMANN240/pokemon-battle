@@ -1,0 +1,49 @@
+body {
+	display: grid;
+	grid-template-columns: 20vw 80vw;
+	grid-template-rows: 10vh 40vh 20vh;
+	grid-template-areas: 
+		"header header"
+		"pic description"
+        "pic-under stats"
+		"pic-under back";
+}
+
+#header {
+	position: relative;
+    grid-area: header;
+}
+
+#pic {
+	grid-area: pic;
+	width: 20vw;
+	height: 35vh;
+}
+
+#description {
+    grid-area: description;
+  }
+
+#back {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	grid-area: back;
+}
+
+#pic-under{
+    position: relative;
+}
+
+#stats{
+    position: relative;
+}
+
+.desc {
+	color: white;
+    font-size: 1.5vw;
+	background-color: var(--bg-text-box);
+	border-radius: 4px;
+	border: 2px solid black;
+}
