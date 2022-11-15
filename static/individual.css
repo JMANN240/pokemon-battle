@@ -9,29 +9,29 @@ body {
 		"types back";
 }
 
-picture {
+#picture {
 	grid-area: picture;
 	
 }
 
-header {
+#header {
 	grid-area: header;
 }
 
-description {
+#description {
 	grid-area:description;
 
 }
 
-types {
+#types {
 	grid-area: types;
 }
 
-stats {
+#stats {
 	grid-area: stats;
 }
 
-back {
+#back {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
