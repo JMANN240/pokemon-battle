@@ -1,17 +1,18 @@
 body {
 	display: grid;
 	grid-template-columns: 30vw 70vw;
-	grid-template-rows: 10vh 30vh 40vh 20vh;
+	grid-template-rows: 10vh 30vh 20vh 20vh 20vh;
 	grid-template-areas:
 		"picture header"
 		"picture description"
+		"picture stats"
 		"types stats"
 		"types back";
 }
 
 #picture {
 	grid-area: picture;
-	
+	width: 100%;	
 }
 
 #header {
@@ -25,6 +26,13 @@ body {
 
 #types {
 	grid-area: types;
+}
+
+.type-box{
+	width: 50%;
+	border: 5px solid black;
+	height: 2em;
+	margin: 1em;
 }
 
 #stats {
