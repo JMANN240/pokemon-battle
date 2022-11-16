@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Items{% endblock %}
+{% block head %}
+    {{ super() }}
+	<link rel="stylesheet" href="static/team.css" type="text/css" />
+{% endblock %}
+{% block body %}
+	<div id="main-container">
+        <div id="selected-column">
+            
+            <div id="selected-poke-box">
+                <img id="selected-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+
+        </div>
+
+        <div id="party-column">
+            <div class="party-poke-box">
+                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+            <div class="party-poke-box">
+                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+            <div class="party-poke-box">
+                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+            <div class="party-poke-box">
+                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+            <div class="party-poke-box">
+                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
+                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
+
+                <div class="health-bar">
+                    <div class="health">HP</div>                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id = "prompt">
+        <div id = "message" >
+            Choose a POKEMON.
+        </div>
+        {% include 'back.html' %}
+    </div> 
+
+{% endblock %}

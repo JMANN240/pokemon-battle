@@ -1,0 +1,107 @@
+#main-container{
+    display: flex;
+    flex-direction: row;
+
+    height: 75vh;
+    max-height: 75vh;
+}
+
+#selected-column {
+    width: 50vw;
+}
+
+#party-column {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+#selected-poke-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 30%;
+
+    margin-top: 20%;
+    margin-left: 10%;
+    background-color: rgb(41, 94, 194);
+    outline: .5vh solid black;
+
+    padding-top: 5%;
+    font-size: 2vw;
+    color: white;
+    font-weight: bold;
+}
+
+.party-poke-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 18%;
+
+    margin-top: 1%;
+    margin-left: 10%;
+    background-color: rgb(41, 94, 194);
+    outline: .5vh solid black;
+
+    padding-top: 1%;
+    font-size: 2vw;
+    color: white;
+    font-weight: bold;
+}
+
+.health-bar {
+    margin-top: 5%;
+    background-color: #6AA84F;
+    width: 70%;
+    outline: .5vh solid black;
+    
+    
+}
+
+.health {
+    background-color:rgb(32, 32, 32);
+    color: lightsalmon;
+    width: 15%;
+    font-size: 80%;
+    text-align: center;
+    outline: .5vh solid black;
+}
+
+#selected-poke {
+    width: 20%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+.party-poke {
+    width: 20%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#prompt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 25vh;
+
+}
+
+#message {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 40%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2vw;
+    outline: .5vh solid black;
+}
