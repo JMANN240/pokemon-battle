@@ -52,6 +52,7 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 		(
   			p_type_id INT NOT NULL,
   			p_type_name TEXT NOT NULL,
+			p_type_color TEXT NOT NULL,
   			PRIMARY KEY (p_type_id)
 		)
 
@@ -115,24 +116,24 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	cursor.execute('INSERT INTO player (player_id, player_name) VALUES (0, "bob")')
 
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (0, "bug")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (1, "dark")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (2, "dragon")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (3, "electric")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (4, "fairy")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (5, "fighting")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (6, "fire")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (7, "flying")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (8, "ghost")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (9, "grass")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (10, "ground")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (11, "ice")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (12, "normal")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (13, "poison")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (14, "psychic")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (15, "rock")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (16, "steel")')
-	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name) VALUES (17, "water")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (0, "bug", "A6B91A")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (1, "dark", "705746")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (2, "dragon", "6F35FC")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (3, "electric", "F7D02C")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (4, "fairy", "D685AD")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (5, "fighting", "C22E28")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (6, "fire", "EE8130")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (7, "flying", "A98FF3")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (8, "ghost", "735797")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (9, "grass", "7AC74C")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (10, "ground", "E2BF65")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (11, "ice", "96D9D6")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (12, "normal", "A8A77A")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (13, "poison", "A33EA1")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (14, "psychic", "F95587")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (15, "rock", "B6A136")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (16, "steel", "B7B7CE")')
+	cursor.execute('INSERT INTO pokemon_types (p_type_id, p_type_name, p_type_color) VALUES (17, "water", "6390F0")')
 
 	cursor.execute('INSERT INTO player_item (quantity, player_id, item_id) VALUES (5, 0, 0)')
 
