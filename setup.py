@@ -112,6 +112,8 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (1, "balls")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (2, "special")')
 
+	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (1, "health potion", "FF0000", 0)')
+	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (2, "speed potion", "0000FF", 0)')
 	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (0, "regular_ball", "red", 1)')
 
 	cursor.execute('INSERT INTO player (player_id, player_name) VALUES (0, "bob")')

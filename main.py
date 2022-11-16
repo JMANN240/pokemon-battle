@@ -4,6 +4,12 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+def dict_factory(cursor, row):
+	d = {}
+	for idx, col in enumerate(cursor.description):
+		d[col[0]] = row[idx]
+	return d
+
 app = FastAPI()
 api = FastAPI()
 
@@ -32,8 +38,17 @@ async def team_member(request: Request, pokemon_name: str):
 	return templates.TemplateResponse('team_member.html', {'request': request})
 
 @app.get('/items/{item_type}', response_class=HTMLResponse)
-async def item_list(request: Request, item_type: str):
-	return templates.TemplateResponse('item_list.html', {'request': request})
+async def item_list(request: Request, item_type: str):	
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		print(item_type)
+		res = cursor.execute("SELECT type_id FROM item_types WHERE type_name=?", (item_type,))
+		type_id = cursor.fetchone()['type_id']
+		res = cursor.execute("SELECT * FROM item WHERE type_id=?", (type_id,))
+		items = res.fetchall()
+		print(items)
+	return templates.TemplateResponse('item_list.html', {'request': request, 'items': items, 'type': item_type})
 
 @app.get('/items/{item_type}/{item_name}', response_class=HTMLResponse)
 async def item(request: Request, item_type: str, item_name: str):
