@@ -87,3 +87,10 @@ button:hover {
 	justify-content: center;
 	font-size: 2.5vw;
 }
+
+.text-box.title-left {
+	display: flex;
+	align-items: left;
+	justify-content: center;
+	font-size: 2.5vw;
+}
