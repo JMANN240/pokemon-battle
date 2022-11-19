@@ -22,6 +22,7 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 		(
 			type_id INT NOT NULL,
 			type_name TEXT NOT NULL,
+			type_display_name TEXT NOT NULL,
 			PRIMARY KEY (type_ID)
 		)
 	''')
@@ -31,7 +32,11 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 		(
   			item_id INT NOT NULL,
   			item_name TEXT NOT NULL,
+			item_display_name TEXT NOT NULL,
   			color TEXT NOT NULL,
+			times_used INT NOT NULL,
+			description TEXT NOT NULL,
+			icon TEXT NOT NULL,
   			type_id INT NOT NULL,
   			PRIMARY KEY (item_id),
   			FOREIGN KEY (type_id) REFERENCES item_types(type_ID)
@@ -76,8 +81,10 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
   			team_id INT NOT NULL,
   			team_name TEXT NOT NULL,
   			player_id INT NOT NULL,
+			active_id INT NOT NULL,
   			PRIMARY KEY (team_id),
   			FOREIGN KEY (player_id) REFERENCES player(player_id)
+			FOREIGN KEY(active_id) REFERENCES pokemon(pokemon_id)
 		)
 	''')
 	
@@ -88,6 +95,10 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
   			p_name TEXT NOT NULL,
   			health INT NOT NULL,
   			hype INT NOT NULL,
+			sprite_path TEXT NOT NULL,
+			holding TEXT NOT NULL,
+			attack INT NOT NULL,
+			defense INT NOT NULL,
   			team_id INT,
   			PRIMARY KEY (pokemon_id),
   			FOREIGN KEY (team_id) REFERENCES team(team_id)
@@ -108,13 +119,13 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	# Then fill in our entries
 
-	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (0, "potions")')
-	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (1, "balls")')
-	cursor.execute('INSERT INTO item_types (type_id, type_name) VALUES (2, "special")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name, type_display_name) VALUES (0, "potions", "Potion")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name, type_display_name) VALUES (1, "balls", "Ball")')
+	cursor.execute('INSERT INTO item_types (type_id, type_name, type_display_name) VALUES (2, "special", "Special")')
 
-	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (1, "health potion", "FF0000", 0)')
-	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (2, "speed potion", "0000FF", 0)')
-	cursor.execute('INSERT INTO item (item_id, item_name, color, type_id) VALUES (0, "regular_ball", "red", 1)')
+	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (1, "health potion", "Health Potion", "FF0000", 0, "Health regeneration!", "fa-solid fa-flask-round-potion", 0)')
+	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (2, "speed potion", "Speed Potion", "0000FF", 0, "Speed Potion go zooom!", "fa-solid fa-flask-round-potion", 0)')
+	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (0, "regular_ball", "Regular Ball", "red", 0, "The Classic Pokemon Ball!", "fa-solid fa-flask-round-potion", 1)')
 
 	cursor.execute('INSERT INTO player (player_id, player_name) VALUES (0, "bob")')
 
@@ -139,9 +150,9 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	cursor.execute('INSERT INTO player_item (quantity, player_id, item_id) VALUES (5, 0, 0)')
 
-	cursor.execute('INSERT INTO team (team_id, team_name, player_id) VALUES (0, "bobs_minions", 0)')
+	cursor.execute('INSERT INTO team (team_id, team_name, player_id, active_id) VALUES (0, "bobs_minions", 0, 0)')
 
-	cursor.execute('INSERT INTO pokemon (pokemon_id, p_name, health, hype, team_id) VALUES (0, "pikachu", 100, 100, 0)')
+	cursor.execute('INSERT INTO pokemon (pokemon_id, p_name, health, hype, sprite_path, holding, attack, defense, team_id) VALUES (0, "pikachu", 100, 100, 0)')
 	
 	cursor.execute('INSERT INTO pokemon_type (pokemon_id, p_type_id) VALUES (0, 3)')
 
