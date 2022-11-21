@@ -125,8 +125,8 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 	cursor.execute('INSERT INTO item_types (type_id, type_name, type_display_name) VALUES (1, "balls", "Ball")')
 	cursor.execute('INSERT INTO item_types (type_id, type_name, type_display_name) VALUES (2, "special", "Special")')
 
-	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (1, "health potion", "Health Potion", "FF0000", 0, "Health regeneration!", "fa-solid fa-flask-round-potion", 0)')
-	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (2, "speed potion", "Speed Potion", "0000FF", 0, "Speed Potion go zooom!", "fa-solid fa-flask-round-potion", 0)')
+	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (1, "health_potion", "Health Potion", "FF0000", 0, "Health regeneration!", "fa-solid fa-flask-round-potion", 0)')
+	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (2, "speed_potion", "Speed Potion", "0000FF", 0, "Speed Potion go zooom!", "fa-solid fa-flask-round-potion", 0)')
 	cursor.execute('INSERT INTO item (item_id, item_name, item_display_name, color, times_used, description, icon, type_id) VALUES (0, "regular_ball", "Regular Ball", "red", 0, "The Classic Pokemon Ball!", "fa-solid fa-flask-round-potion", 1)')
 
 	cursor.execute('INSERT INTO player (player_id, player_name) VALUES (0, "bob")')
