@@ -102,6 +102,7 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 			speed INT NOT NULL,
 			caught_date TEXT NOT NULL,
   			team_id INT,
+			description TEXT NOT NULL,
   			PRIMARY KEY (pokemon_id),
   			FOREIGN KEY (team_id) REFERENCES team(team_id)
 		)
@@ -156,9 +157,9 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	cursor.execute('''
 		INSERT INTO pokemon
-			(pokemon_id, p_name, health, hype, sprite_path, holding, attack, defense, speed, caught_date, team_id)
+			(pokemon_id, p_name, health, hype, sprite_path, holding, attack, defense, speed, caught_date, team_id, description)
 		VALUES
-			(0, "pikachu", 100, 100, "/static/pikachu_icon.png", "Fire Stone", 12, 34, 15, "11/18/2022", 0)
+			(0, "pikachu", 100, 100, "/static/pikachu_icon.png", "Fire Stone", 12, 34, 15, "11/18/2022", 0, "Pokemon is an adorable electric pokemon with soft cheeks!")
 		''')
 
 	cursor.execute('''
