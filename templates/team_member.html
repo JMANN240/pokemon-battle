@@ -11,23 +11,32 @@
 	<body>
 		
 		<p id="header" class="text-box title">
-			Pokemon Profile
+			{{pokemon['p_name']|capitalize}}
 		</p>
 
-		<img id="picture" src="/static/pikachu_icon.png" alt="Pikachu">
+		<img id="picture" class="sprite" src="{{pokemon['sprite_path']}}" alt="{{pokemon['p_name']|capitalize}}">
 		
-				
-		<p id="description" class = "text-box title">
-			[Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.]
+		<p id="description" class = "text-box">
+			pokemon['description']
 		</p>
+
+		<div id="stats" class = "text-box">
+			<p>Caught: {{pokemon['caught_date']}}</p>
+			<p>Currently Holding: {{pokemon['holding']}}</p>
+			<p style="color: var(--fg-health);">Health: {{pokemon['health']}}</p>
+			<p style="color: var(--fg-attack);">Attack: {{pokemon['attack']}}</p>
+			<p style="color: var(--fg-defense);">Defense: {{pokemon['defense']}}</p>
+			<p style="color: var(--fg-speed);">Speed: {{pokemon['speed']}}</p>
+		</div>
 
 		<div id="back">
 			{% include 'back.html' %}
 		</div>
 
-
 		<div id = "types">
-			<p class = "type-box">Electric</p>
+			{% for type in types %}
+			<p class="type-box" style="background-color: #{{type['p_type_color']}}">{{type['p_type_name']}}</p>
+			{% endfor %}
 		</div>
 	</body>
 </html>

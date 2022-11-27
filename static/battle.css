@@ -32,18 +32,18 @@
     font-weight: bold;
     font-size: 3vw;
 
-    background-color: rgb(41, 94, 194);
+    background-color: var(--bg-text-box);
     width: 50vw;
     outline: .5vh solid black;
 }
 
 #options-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
     width: 50vw;
-
+    display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	align-items: center;
+	justify-items: center;
     outline: .5vh solid black;
 }
 
@@ -78,17 +78,15 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 30vw;
-    height: 25vh;
+	align-items: center;
+    width: 25vw;
 
     font-weight: bold;
     font-size: 2vw;
     background-color: blanchedalmond;
     outline: .5vh solid black;
-    
-    padding-top: 3vh;
-    padding-left: 1vw;
-    
+
+	padding: 1em;
 }
 
 #opponent-box {
@@ -102,42 +100,35 @@
     right: 15vw;
 }
 
-.health-bar {
-    margin-top: 5vh;
-    margin-left: 3vw;
-    background-color: #6AA84F;
-    width: 80%;
-    outline: .5vh solid black;
-    
-    
+.status-box-title {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 1em;
 }
 
-.health {
-    background-color:rgb(32, 32, 32);
-    color: lightsalmon;
-    width: 15%;
+.bar {
+    
+    width: 90%;
+    outline: .5vh solid black;
+	margin-bottom: 1em;
+}
+
+.stat {
+    background-color:var(--bg-stat);
+    color: var(--fg-stat);
+    width: 20%;
     font-size: 80%;
     text-align: center;
     outline: .5vh solid black;
 }
 
-.exp-bar {
-    margin-top: 6vh;
-    align-items: center;
-    background-color: #2B78E4;
-    width: 95%;
-    outline: .5vh solid black;
-    
-    
+.bar.exp {
+    background-color: var(--bg-exp-bar);
 }
 
-.exp {
-    background-color:rgb(32, 32, 32);
-    color: lightsalmon;
-    width: 15%;
-    font-size: 50%;
-    text-align: center;
-    outline: .5vh solid black;
+.bar.health {
+    background-color: var(--bg-hp-bar);
 }
 
 

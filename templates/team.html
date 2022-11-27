@@ -7,59 +7,16 @@
 {% block body %}
 	<div id="main-container">
         <div id="selected-column">
-            
-            <div id="selected-poke-box">
-                <img id="selected-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
+			<h1>Active Pokemon</h1>
+            {% set p=active_pokemon %}
+            {% include 'party_box.html' %}
 
         </div>
 
         <div id="party-column">
-            <div class="party-poke-box">
-                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
-            <div class="party-poke-box">
-                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
-            <div class="party-poke-box">
-                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
-            <div class="party-poke-box">
-                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
-            <div class="party-poke-box">
-                <img class="party-poke" src ="/static/Magikarp_Icon.webp">
-                <div> MAGIKARP&nbsp;&nbsp;&nbsp;&nbsp;Lv. 69</div>
-
-                <div class="health-bar">
-                    <div class="health">HP</div>                   
-                </div>
-            </div>
+			{% for p in pokemon %}
+				{% include 'party_box.html' %}
+			{% endfor %}
         </div>
 
     </div>

@@ -96,7 +96,7 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
   			health INT NOT NULL,
   			hype INT NOT NULL,
 			sprite_path TEXT NOT NULL,
-			holding TEXT NOT NULL,
+			holding TEXT,
 			attack INT NOT NULL,
 			defense INT NOT NULL,
 			speed INT NOT NULL,
@@ -154,8 +154,29 @@ with sqlite3.connect("database.db") as connection: # Get a connection to the dat
 
 	cursor.execute('INSERT INTO team (team_id, team_name, player_id, active_id) VALUES (0, "bobs_minions", 0, 0)')
 
-	cursor.execute('INSERT INTO pokemon (pokemon_id, p_name, health, hype, sprite_path, holding, attack, defense, speed, caught_date, team_id) VALUES (0, "pikachu", 100, 100, "/static/pikachu.png", "Fire Stone", 12, 34, 15, "11_18_2022", 0)')
+	cursor.execute('''
+		INSERT INTO pokemon
+			(pokemon_id, p_name, health, hype, sprite_path, holding, attack, defense, speed, caught_date, team_id)
+		VALUES
+			(0, "pikachu", 100, 100, "/static/pikachu_icon.png", "Fire Stone", 12, 34, 15, "11/18/2022", 0)
+		''')
+
+	cursor.execute('''
+		INSERT INTO pokemon
+			(pokemon_id, p_name, health, hype, sprite_path, attack, defense, speed, caught_date, team_id)
+		VALUES
+			(1, "arceus", 100, 1000, "/static/arceus_icon.png", 100, 25, 50, "11/22/2022", 0)
+		''')
+
+	cursor.execute('''
+		INSERT INTO pokemon
+			(pokemon_id, p_name, health, hype, sprite_path, attack, defense, speed, caught_date, team_id)
+		VALUES
+			(2, "bidoof", 20, 50, "/static/bidoof_icon.png", 200, 0, 0, "11/21/2022", 0)
+		''')
 	
 	cursor.execute('INSERT INTO pokemon_type (pokemon_id, p_type_id) VALUES (0, 3)')
+	cursor.execute('INSERT INTO pokemon_type (pokemon_id, p_type_id) VALUES (1, 12)')
+	cursor.execute('INSERT INTO pokemon_type (pokemon_id, p_type_id) VALUES (2, 12)')
 
 	connection.commit()

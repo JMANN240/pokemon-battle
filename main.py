@@ -31,11 +31,36 @@ async def items(request: Request):
 
 @app.get('/team', response_class=HTMLResponse)
 async def team(request: Request):
-	return templates.TemplateResponse('team.html', {'request': request})
+	team_id=0
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		res = cursor.execute("SELECT * FROM pokemon WHERE team_id=?", (team_id,))
+		pokemon = res.fetchall()
+		res = cursor.execute("SELECT * FROM pokemon WHERE pokemon_id=(SELECT active_id FROM team WHERE team_id=?)", (team_id,))
+		active_pokemon = res.fetchone()
+	return templates.TemplateResponse('team.html', {
+		'request': request,
+		'pokemon': [p for p in pokemon if p != active_pokemon],
+		'active_pokemon': active_pokemon,
+		'back_url': '/'
+	})
 
-@app.get('/team/{pokemon_name}', response_class=HTMLResponse)
-async def team_member(request: Request, pokemon_name: str):
-	return templates.TemplateResponse('team_member.html', {'request': request})
+@app.get('/team/{pokemon_id}', response_class=HTMLResponse)
+async def team_member(request: Request, pokemon_id: int):
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		res = cursor.execute("SELECT * FROM pokemon WHERE pokemon_id=?", (pokemon_id,))
+		pokemon = res.fetchone()
+		res = cursor.execute("SELECT * FROM pokemon_type LEFT JOIN pokemon_types ON pokemon_type.p_type_id=pokemon_types.p_type_id WHERE pokemon_id=?", (pokemon_id,))
+		types = res.fetchall()
+	return templates.TemplateResponse('team_member.html', {
+		'request': request,
+		'pokemon': pokemon,
+		'types': types,
+		'back_url': '/team'
+	})
 
 @app.get('/items/{item_type}', response_class=HTMLResponse)
 async def item_list(request: Request, item_type: str):	

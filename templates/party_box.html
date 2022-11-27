@@ -1,0 +1,13 @@
+<a href="/team/{{p['pokemon_id']}}">
+	<div class="party-poke-box">
+		<img class="party-poke sprite" src ="{{p['sprite_path']}}">
+		<div> {{p['p_name']}}&nbsp;&nbsp;&nbsp;&nbsp;Hype {{p['hype']}}</div>
+
+		<div class="health-bar">
+			<div class="health">HP</div>
+			<div styles="width: auto; height: 100%;">
+				<div styles="background-color: red; width: {{100-p['health']}}%"></div>
+			</div>
+		</div>
+	</div>
+</a>
