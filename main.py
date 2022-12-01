@@ -73,11 +73,19 @@ async def item_list(request: Request, item_type: str):
 		res = cursor.execute("SELECT * FROM item WHERE type_id=?", (type_id,))
 		items = res.fetchall()
 		print(items)
-	return templates.TemplateResponse('item_list.html', {'request': request, 'items': items, 'type': item_type})
+	return templates.TemplateResponse('item_list.html', {
+		'request': request,
+		'items': items,
+		'type': item_type,
+		'back_url': '/items'
+	})
 
 @app.get('/items/{item_type}/{item_name}', response_class=HTMLResponse)
 async def item(request: Request, item_type: str, item_name: str):
-	return templates.TemplateResponse('item.html', {'request': request})
+	return templates.TemplateResponse('item.html', {
+		'request': request,
+		'back_url': f'/items/{item_type}'
+	})
 
 @app.get('/map', response_class=HTMLResponse)
 async def map(request: Request):
