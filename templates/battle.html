@@ -3,9 +3,10 @@
 <link rel="stylesheet" href="static/battle.css" type="text/css" />
 {% endblock %} {% block body %}
 <div id="main-container">
+  {% set p=active_pokemon %}
   <div id="battle-interface">
-    <img id="trainer-pokemon" src="/static/magikarp_battle_sprite.png" />
-    <img id="opponent-pokemon" src="/static/arceus_battle_sprite.png" />
+    <img id="trainer-pokemon" src={{p['battle_sprite_path']}} />
+    <img id="opponent-pokemon" src="/static/arceus_battle_sprite2.png" />
 
     <div class="battle-box" id="opponent-box">
       <div class="status-box-title">
@@ -20,8 +21,8 @@
 
     <div class="battle-box" id="trainer-box">
       <div class="status-box-title">
-        <p>MAGIKARP</p>
-        <p>Lv. 69</p>
+        <p>{{p['p_name']|upper}}</p>
+        <p>Lv. {{p['hype']}}</p>
       </div>
 
       <div class="health bar">
@@ -35,7 +36,7 @@
   </div>
 
   <div id="option-select-interface">
-    <div id="prompt">What will MAGIKARP do?</div>
+    <div id="prompt">What will {{p['p_name']|upper}} do?</div>
 
     <div id="options-grid">
       <button class="button-style">Fight</button>

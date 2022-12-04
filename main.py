@@ -20,7 +20,18 @@ templates = Jinja2Templates(directory='templates')
 
 @app.get('/', response_class=HTMLResponse)
 async def battle(request: Request):
-	return templates.TemplateResponse('battle.html', {'request': request})
+	team_id=0
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		res = cursor.execute("SELECT * FROM pokemon WHERE team_id=?", (team_id,))
+		#pokemon = res.fetchall()
+		res = cursor.execute("SELECT * FROM pokemon WHERE pokemon_id=(SELECT active_id FROM team WHERE team_id=?)", (team_id,))
+		active_pokemon = res.fetchone()
+	return templates.TemplateResponse('battle.html', {
+		'request': request,
+		'active_pokemon': active_pokemon
+	})
 
 @app.get('/items', response_class=HTMLResponse)
 async def items(request: Request):
