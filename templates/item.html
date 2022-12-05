@@ -11,20 +11,22 @@
 	
 	<body>
 		<p id="header" class="text-box title-left">
-            <img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball">
-			Health Potion
-            <img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball">
+            <img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball" style="width: 6vh;">
+			&nbsp;{{item['item_display_name']}}&nbsp;
+            <img id="pokeball" src="/static/pokeball_outline.svg" alt="An Outlined Pokeball" style="width: 6vh;">
 		</p>
 		
-		<img id="pic" src="/static/health-potion.svg">
-        <p id="stats" class="desc">Times used: 3<br>Amount healed: 300<br>Pokemon revived: 1<br>Random Stat: 1337</p>
+		<div id="pic">
+			<i class="{{item['icon']}} huge-icon" style="color: #{{item['color']}};"></i>
+		</div>
+        <p id="stats" class="desc text-box">
+			Times used: {{item['times_used']}}
+		</p>
 
 		</div>
 
-        <div id ="description" class="desc">The Potion was introduced as a Trainer card in the Pokémon Trading Card Game during the English Original Series (the Japanese Original Era) in the Base Set expansion with artwork by Keiji Kinebuchi. It was later released as an Item card in the Black & White expansion with new artwork by Ayaka Yoshida, first released in the Japanese Beginning Set. This card has since been released numerous times throughout the course of the TCG. In the Base Set, Expedition Base Set, and EX Unseen Forces prints, this Trainer card allows the player to remove two damage counters from one of their Pokémon. In the Black & White, XY, and Sun & Moon Series prints, this Trainer card allows the player to heal 30 damage from one of their Pokémon.</div>
+        <div id ="description" class="desc text-box">{{item['description']}}</div>
         
-        <p id="stats" class="desc">This health potion restores the HP of one Pokémon by 100 points unless negatively affected. A spray-type medicine for treating wounds. It can be used to restore 100 HP to an injured Pokémon, or revive a downed Pokemon.</p>
-
 		<div id="back">
 			{% include 'back.html' %}
 		</div>

@@ -5,19 +5,25 @@ body {
 	grid-template-areas: 
 		"header header"
 		"pic description"
-        "pic-under stats"
-		"pic-under back";
+        "stats description"
+		"back back";
 }
 
 #header {
 	position: relative;
     grid-area: header;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #pic {
 	grid-area: pic;
 	width: 20vw;
 	height: 35vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #description {

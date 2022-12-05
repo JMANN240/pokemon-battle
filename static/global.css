@@ -19,6 +19,7 @@
 	--fg-stat: #FF9900;
 	--bg-stat: #333333;
 	--bg-hp-bar: #6AA84F;
+	--bg-hp-bar-hover: #8AC86F;
 	--bg-exp-bar: #2B78E4;
 	--bg-back: #9900FF;
 	--bg-back-hover: #A319FF;
@@ -41,6 +42,13 @@ a {
 .large-icon {
 	font-size: 4vw;
 	margin: 1rem;
+}
+
+.huge-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12vw;
 }
 
 button {
@@ -79,6 +87,30 @@ button:hover {
 	width: 8vw;
 }
 
+#select-button {
+	position: relative;
+	width: 20vw;
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #FFFFFF;
+	background-color: var(--bg-hp-bar);
+	font-size: 4vw;
+	margin-right: 4vw;
+}
+
+#select-button:hover {
+	background-color: var(--bg-hp-bar-hover);
+}
+
+#select-button > #pokeball {
+	position: absolute;
+	top: calc(50% - 4vw);
+	left: calc(-4vw);
+	width: 8vw;
+}
+
 .text-box {
 	padding: 0.5em;
 	color: white;
@@ -86,6 +118,14 @@ button:hover {
 	border-radius: 4px;
 	border: 2px solid black;
 	font-size: 1.5vw;
+}
+
+.item-list-entry {
+	padding: 0.5em;
+	background-color: var(--bg-text-box);
+	border-radius: 4px;
+	border: 2px solid black;
+	height: 15vh;
 }
 
 .text-box.title {

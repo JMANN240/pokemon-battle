@@ -8,14 +8,14 @@
 	<div id="list-div">
 		{% for item in items %}
 		<a href="/items/{{type}}/{{item['item_name']}}">
-			<button id="potions-button" style="color: #{{item['color']}};">
-				<i class="fa-solid fa-flask large-icon"></i>
-				{{item['item_name']}}
+			<button class="item-list-entry" id="potions-button" style="color: #{{item['color']}};">
+				<i class="{{item['icon']}} large-icon"></i>
+				{{item['item_display_name']}}
 			</button>
 		</a>
 		{% endfor %}
 	</div>
-	<div id="back">
+	<div id="footer-div">
 		{% include 'back.html' %}
 	</div>
 {% endblock %}

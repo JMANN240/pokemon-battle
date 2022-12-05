@@ -45,7 +45,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 40vw;
-    height: 12vh;
+    height: 16vh;
 
     margin-top: 2vh;
     background-color: var(--bg-text-box);

@@ -1,6 +1,6 @@
 import sqlite3
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -73,6 +73,14 @@ async def team_member(request: Request, pokemon_id: int):
 		'back_url': '/team'
 	})
 
+@app.get('/team/select/{pokemon_id}', response_class=RedirectResponse)
+async def team_member(request: Request, pokemon_id: int):
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		cursor.execute("UPDATE team SET active_id=:pokemon_id WHERE team_id=0", {'pokemon_id': pokemon_id})
+	return RedirectResponse('/team')
+
 @app.get('/items/{item_type}', response_class=HTMLResponse)
 async def item_list(request: Request, item_type: str):	
 	with sqlite3.connect("database.db") as connection:
@@ -93,9 +101,15 @@ async def item_list(request: Request, item_type: str):
 
 @app.get('/items/{item_type}/{item_name}', response_class=HTMLResponse)
 async def item(request: Request, item_type: str, item_name: str):
+	with sqlite3.connect("database.db") as connection:
+		connection.row_factory = dict_factory
+		cursor = connection.cursor()
+		res = cursor.execute("SELECT * FROM item WHERE item_name=?", (item_name,))
+		item = cursor.fetchone()
 	return templates.TemplateResponse('item.html', {
 		'request': request,
-		'back_url': f'/items/{item_type}'
+		'back_url': f'/items/{item_type}',
+		'item': item
 	})
 
 @app.get('/map', response_class=HTMLResponse)
