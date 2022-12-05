@@ -22,7 +22,7 @@
 			[Mountain Gym: Rock, Steel, and Ground type monsters]
 		</p>
 
-		<div id="chat"class="text-box">
+		<div id="chat" class="text-box">
 
 		</div>
 		
@@ -31,6 +31,21 @@
 		<div id="back">
 			{% include 'back.html' %}
 		</div>
+
+		<script>
+			const text_box = document.querySelector('#text-box');
+			const chat_box = document.querySelector('#chat');
+
+			text_box.addEventListener('keydown', (e) => {
+				if (e.code === 'Enter') {
+					const para = document.createElement("p");
+					const node = document.createTextNode(`user: ${text_box.value}`);
+					para.appendChild(node);
+					chat_box.appendChild(para)
+					text_box.value = "";
+				}
+			})
+		</script>
 	</body>
 </html>
 
